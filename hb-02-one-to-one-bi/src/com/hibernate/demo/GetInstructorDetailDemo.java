@@ -40,6 +40,7 @@ public class GetInstructorDetailDemo {
 			System.out.println("done");
 			
 		} finally {
+			session.close(); //handles connection leak
 			factory.close();
 		}
 	}
