@@ -28,7 +28,12 @@ public class InstructorDetail {
 	private String hobby;
 	
 	//add new field for instructor 
-	@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL) //mapped by refers to the instructor detail property in the instructor class. 
+	@OneToOne(mappedBy = "instructorDetail", cascade = {
+			CascadeType.DETACH,
+			CascadeType.MERGE,
+			CascadeType.PERSIST,
+			CascadeType.REFRESH,}) //mapped by refers to the instructor detail property in the instructor class. 
+	//only delete the detail
 	private Instructor instructor;
 	
 	public Instructor getInstructor() {

@@ -27,7 +27,7 @@ public class DeleteInstructorDetailDemo {
 			session.beginTransaction();
 
 			//get the instructor detail object
-			int theId=8;
+			int theId=10;
 			InstructorDetail tempInstructorDetail = session.get(InstructorDetail.class, theId);
 			
 			if (tempInstructorDetail != null) {
@@ -36,6 +36,10 @@ public class DeleteInstructorDetailDemo {
 				System.out.println("Delete  instructor detail is : " + tempInstructorDetail);
 				//print the associated instructor
 				System.out.println("Delete the associated instructor is: " + tempInstructorDetail.getInstructor());
+				
+				//remove the associated object reference
+				//break bi-directional link
+				tempInstructorDetail.getInstructor().setInstructorDetail(null); //this is saying that now you dont have any references to any details.
 				
 				//delete 
 				session.delete(tempInstructorDetail);
