@@ -41,7 +41,7 @@ public class Instructor {
 	@JoinColumn(name = "instructor_detail_id") //here is the column to join on
 	private InstructorDetail instructorDetail; //here the type is instructor detail because its the holds the primary key ref of the instructor detail table
 
-	@OneToMany(	fetch = FetchType.EAGER, 
+	@OneToMany(	fetch = FetchType.LAZY, 
 							mappedBy = "instructor", 
 							cascade = {CascadeType.DETACH,CascadeType.MERGE,
 											CascadeType.PERSIST,CascadeType.REFRESH})
