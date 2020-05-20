@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import com.hibernate.demo.entity.Course;
 import com.hibernate.demo.entity.Instructor;
 import com.hibernate.demo.entity.InstructorDetail;
+import com.hibernate.demo.entity.Review;
 
 public class CreateCoursesDemo {
 
@@ -18,6 +19,7 @@ public class CreateCoursesDemo {
 				.addAnnotatedClass(Instructor.class)
 				.addAnnotatedClass(InstructorDetail.class)
 				.addAnnotatedClass(Course.class)
+				.addAnnotatedClass(Review.class)
 				.buildSessionFactory();
 		
 		//create a session
@@ -36,7 +38,7 @@ public class CreateCoursesDemo {
 			//create some courses
 			Course tempCourse1 = new Course("CSE101");
 			Course tempCourse2 = new Course("CSE110");
-			Course tempCourse3 = new Course("CSE111");
+			Course tempCourse3 = new Course("CSE220");
 			
 			//add courses to instructor
 			tempInstructor.add(tempCourse1);
