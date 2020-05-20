@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,13 +35,13 @@ public class Instructor {
 	
 	@Column(name = "email")
 	private String email;
-	
+		
 	//setup mapping to instructorDetail entity
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "instructor_detail_id") //here is the column to join on
 	private InstructorDetail instructorDetail; //here the type is instructor detail because its the holds the primary key ref of the instructor detail table
 
-	@OneToMany(mappedBy = "instructor", cascade = {CascadeType.DETACH,CascadeType.MERGE,
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = {CascadeType.DETACH,CascadeType.MERGE,
 											CascadeType.PERSIST,CascadeType.REFRESH})
 	private List<Course> courses;
 	
