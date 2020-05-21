@@ -34,7 +34,7 @@ public class GetCoursesForSanjidaDemo {
 			session.beginTransaction();
 			
 			//get sanjida from the database
-			int sanId=4;
+			int sanId=3;
 			Student tempStudent= session.get(Student.class, sanId);
 			System.out.println("\n The Student is: " + tempStudent.getFirstName());
 			System.out.println("\n Her courses are: " + tempStudent.getCourses());
