@@ -1,4 +1,4 @@
-package com.jdbc;
+package com.Maruf.testDB;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,7 +40,7 @@ public class TestDbServlet extends HttpServlet {
 			
 			Connection myConn = DriverManager.getConnection(jdbcUrl, user, pass);
 			
-			out.println("SUCCESS!!!");
+			out.println("\n SUCCESS!!!");
 			
 			myConn.close();
 			
@@ -49,7 +49,6 @@ public class TestDbServlet extends HttpServlet {
 			exc.printStackTrace();
 			throw new ServletException(exc);
 		}
-	
 	
 	}
 
